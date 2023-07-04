@@ -1,0 +1,42 @@
+.img-card {
+    height: 100px;
+    width: 100px;
+}
+
+/* productcard.css */
+.card {
+    align-items: center;
+    /* Add some margin to create space between cards */
+    margin: 10px;
+    /* Set a fixed width for medium-sized cards */
+    width: 250px;
+    /* Apply a box shadow to create the shadow effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Add some padding inside the card */
+    padding: 10px;
+    /* Set the border radius to create rounded corners */
+    border-radius: 8px;
+    /* Add a CSS transition for smooth hover effects */
+    transition: box-shadow 0.3s ease;
+}
+
+/* Add a hover effect to increase the shadow on hover */
+.card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Create a new CSS class to clear the floats after every fourth card */
+.row .clearfix {
+    clear: both;
+}
+
+/* Set the width of the cards to 25% to fit four cards in each row */
+/* On medium-sized screens (768px and above), each card will take up 4 columns */
+/* On small screens, you may want to change the width to 50% or adjust as needed */
+@media (min-width: 768px) {
+    .col-md-4 {
+        width: 25%;
+        float: left;
+        /* Float the cards to create the grid */
+    }
+}
