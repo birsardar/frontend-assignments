@@ -150,10 +150,6 @@ export default function ProductCard() {
         {filteredData.map((item) => (
           <div key={item.id} className="col-md-3 mb-3">
             <div className="card">
-              <div className="tag">
-                <FontAwesomeIcon icon={faTag} />
-                <span>Sample Tag</span>
-              </div>
               <img
                 className="card-img-top img-card"
                 src={item.image}
@@ -161,7 +157,11 @@ export default function ProductCard() {
               />
               <div className="card-body">
                 <h5 className="card-title">{item.title}</h5>
-                <p className="card-text"> Price : ${item.price}</p>
+                <p className="card-text">
+                  Price : ${item.price}
+                  <FontAwesomeIcon className="flagicon" icon={faTag} />
+                  <span className="category-text">{item.category}</span>
+                </p>
 
                 <Link
                   to={`/productdetail/${item.id}`}

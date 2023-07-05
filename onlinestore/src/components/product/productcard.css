@@ -1,11 +1,26 @@
 .img-card {
     height: 100px;
     width: 100px;
+    margin-top: 16px;
 }
 
 .card-text {
     font-size: 15px;
     font-style: italic;
+}
+
+.card-title {
+    display: flex;
+}
+
+.category-text {
+    font-size: 10px;
+    margin-left: 5px;
+}
+
+.flagicon {
+    font-size: 10px;
+    margin-left: 10px;
 }
 
 .tag {

@@ -6,9 +6,9 @@ export default function Navbar() {
     <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
-            Navbar
-          </a>
+          <Link className="navbar-brand" href="/">
+            Online Store
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -26,11 +26,6 @@ export default function Navbar() {
                 <Link className="nav-link active" aria-current="page" to="/">
                   Home
                 </Link>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Link
-                </a>
               </li>
             </ul>
           </div>
