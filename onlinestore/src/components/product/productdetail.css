@@ -1,0 +1,23 @@
+/* productdetail.css */
+.container {
+
+    align-items: center;
+    justify-content: center;
+}
+
+.product {
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+    padding: 6px;
+}
+
+.detail-img {
+    background-color: gray;
+    max-width: 200px;
+    margin-right: 20px;
+}
+
+p {
+    font-size: 10px;
+}

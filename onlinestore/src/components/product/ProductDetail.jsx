@@ -1,33 +1,45 @@
 import React from "react";
-import "./detail.css";
-
+import "./productdetail.css";
+import { useParams, Link } from "react-router-dom";
+import { useQuery } from "react-query";
+import { fetchProductById } from "../api/Api";
 import { FaArrowLeft } from "react-icons/fa";
+import Navbar from "../Navbar";
+import Footer from "../footer/Footer";
 
-const ProductDetails = ({ product, onBack }) => {
+const ProductDetail = ({ onBack }) => {
+  const { id } = useParams();
+  const { data, isLoading, isError } = useQuery(["product", id], () =>
+    fetchProductById(id)
+  );
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (isError) {
+    return <div>Error occurred while fetching data</div>;
+  }
+
   return (
     <div>
-      {/* <button className="btn btn-primary" onClick={onBack}>
-        Back
-      </button>
-      <h2>{product.title}</h2>
-      <p>${product.price}</p>
-      <p>{product.description}</p>
-      Add any other product details you want to display */}
-      <div className="container">
-        <button className="btn btn-primary" onClick={onBack}>
-          <FaArrowLeft />
-        </button>
-        <div className="desc">
-          <img className="detail-img" src={product.image} alt="" />
-          <h1>{product.title}</h1>
-          <p>${product.price}</p>
-          <div className="description">
-            <p>{product.description}</p>
+      <Navbar />
+      <div className="container my-3">
+        <Link to="/" className="btn btn-primary">
+          <FaArrowLeft /> Back
+        </Link>
+        <div className="product">
+          <img src={data.image} className="detail-img" alt={data.title} />
+          <div className="product-details">
+            <h1>{data.title}</h1>
+            <p>${data.price}</p>
+            <p>{data.description}</p>
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
 
-export default ProductDetails;
+export default ProductDetail;

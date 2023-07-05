@@ -25,19 +25,14 @@ import Navbar from "./components/Navbar";
 import Home from "./components/pages/Home";
 
 const App = () => {
-  const products = fetchProducts(); // Fetch products using your API function
-
   return (
     <>
       <Router>
         <div>
           <Routes>
             <Route exact path="/" element={<Home />} />
-            <Route
-              path="/productcard"
-              element={<ProductCard products={products} />}
-            />
-            <Route path="/productdetail/:id" element={ProductDetail} />
+            <Route path="/productcard" />
+            <Route path="/productdetail/:id" element={<ProductDetail />} />
           </Routes>
         </div>
       </Router>

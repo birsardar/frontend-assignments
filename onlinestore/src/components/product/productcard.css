@@ -5,6 +5,7 @@
 
 /* productcard.css */
 .card {
+    background-color: grey;
     align-items: center;
     /* Add some margin to create space between cards */
     margin: 10px;
@@ -29,6 +30,7 @@
 .row .clearfix {
     clear: both;
 }
+
 
 /* Set the width of the cards to 25% to fit four cards in each row */
 /* On medium-sized screens (768px and above), each card will take up 4 columns */

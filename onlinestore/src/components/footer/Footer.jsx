@@ -17,7 +17,7 @@ export default function Footer() {
           <div className="location">
             <FaHome size={20} style={{ color: "#fff", marginRight: "2rem" }} />
             <div>
-              <p>Biratnagar, Nepal</p>
+              <p>Online Store</p>
             </div>
           </div>
           <div className="phone">
