@@ -5,7 +5,7 @@
 
 /* productcard.css */
 .card {
-    background-color: grey;
+    background-color: rgb(210, 190, 190);
     align-items: center;
     /* Add some margin to create space between cards */
     margin: 10px;
