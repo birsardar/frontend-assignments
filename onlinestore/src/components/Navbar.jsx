@@ -1,8 +1,7 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
-  const location = useLocation();
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -24,21 +23,17 @@ export default function Navbar() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <div className="d-flex">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0 ms-auto">
-                <li
-                  className={`nav-item ${
-                    location.pathname === "/" ? "active" : ""
-                  }`}
-                >
+                <li className="nav-item">
                   <Link className="nav-link active" aria-current="page" to="/">
                     Home
                   </Link>
                 </li>
-                <li
-                  className={`nav-item ${
-                    location.pathname === "/cart" ? "active" : ""
-                  }`}
-                >
-                  <Link className="nav-link " aria-current="page" to="/cart">
+                <li className="nav-item">
+                  <Link
+                    className="nav-link active"
+                    aria-current="page"
+                    to="/cart"
+                  >
                     Cart
                   </Link>
                 </li>
