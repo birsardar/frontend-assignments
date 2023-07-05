@@ -23,6 +23,7 @@ import ProductDetail from "./components/product/ProductDetail";
 import { fetchProducts } from "./components/api/Api"; // Adjust the path to your API functions
 import Navbar from "./components/Navbar";
 import Home from "./components/pages/Home";
+import Cart from "./components/cart/Cart";
 
 const App = () => {
   return (
@@ -33,6 +34,7 @@ const App = () => {
             <Route exact path="/" element={<Home />} />
             <Route path="/productcard" />
             <Route path="/productdetail/:id" element={<ProductDetail />} />
+            <Route path="/cart" element={<Cart />} />
           </Routes>
         </div>
       </Router>

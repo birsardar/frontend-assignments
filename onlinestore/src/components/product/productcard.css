@@ -3,14 +3,26 @@
     width: 100px;
 }
 
+.card-text {
+    font-size: 15px;
+    font-style: italic;
+}
+
+.tag {
+    margin: 15px 25px;
+    font-size: 10px;
+    display: revert;
+}
+
 /* productcard.css */
 .card {
     background-color: rgb(210, 190, 190);
     align-items: center;
     /* Add some margin to create space between cards */
     margin: 10px;
-    /* Set a fixed width for medium-sized cards */
-    width: 250px;
+    /* Set a auto width for medium-sized cards */
+    width: auto;
+    min-width: 100px;
     /* Apply a box shadow to create the shadow effect */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     /* Add some padding inside the card */
@@ -23,7 +35,7 @@
 
 /* Add a hover effect to increase the shadow on hover */
 .card:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 30px 30px rgba(0, 0, 0, 0.2);
 }
 
 /* Create a new CSS class to clear the floats after every fourth card */
@@ -31,14 +43,71 @@
     clear: both;
 }
 
+.filter {
+    display: flex;
+}
+
+.filter-body {
+    display: flex;
+    gap: 10px;
+
+}
+
+.suggestions {
+    position: absolute;
+    margin-top: 30px;
+    z-index: 1;
+    width: 30%;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.suggestion {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.suggestion:hover {
+    background-color: #e3e3e3;
+}
+
 
 /* Set the width of the cards to 25% to fit four cards in each row */
 /* On medium-sized screens (768px and above), each card will take up 4 columns */
 /* On small screens, you may want to change the width to 50% or adjust as needed */
-@media (min-width: 768px) {
-    .col-md-4 {
-        width: 25%;
-        float: left;
-        /* Float the cards to create the grid */
+
+/* Styles for screens with a maximum width of 649 pixels */
+@media screen and (max-width: 649px) {
+    .col-md-3 {
+        width: 100%;
+        float: none;
+        /* Reset the card width and float */
+    }
+
+    .card {
+        /* Set a new width to fit one card per row on small screens */
+        width: 100%;
+        /* Add some margin to create space between cards */
+        margin-bottom: 10px;
+    }
+
+    input[type="text"],
+    select {
+        width: 100%;
+        /* Make the search input and select full width */
+    }
+
+    .filter-body {
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+        /* Stack the filter elements in a column layout */
+    }
+
+    /* Add some spacing between filter elements */
+    .filter-body>*+* {
+        margin-top: 10px;
     }
 }
