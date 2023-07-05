@@ -4,14 +4,16 @@ import { fetchProducts } from "../api/Api";
 import "./productcard.css";
 import { useQuery } from "react-query";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTag } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faTag } from "@fortawesome/free-solid-svg-icons";
+import { Modal, Button } from "react-bootstrap";
 
-export default function ProductCard() {
+export default function ProductCard({ cartItems, setCartItems }) {
   const { data, isLoading, isError } = useQuery("products", fetchProducts);
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedPriceRange, setSelectedPriceRange] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
+  const [modalVisible, setModalVisible] = useState(false);
   const suggestionsRef = useRef(null);
 
   useEffect(() => {
@@ -92,9 +94,29 @@ export default function ProductCard() {
     setSearchQuery("");
     setSuggestions([]);
   };
+  const handleAddToCart = (product) => {
+    setCartItems([...cartItems, product]);
+    setModalVisible(true); // Show the modal when the product is added to the cart
+    setTimeout(() => {
+      setModalVisible(false); // Hide the modal after a few seconds
+    }, 2000); // 2000 milliseconds (2 seconds) for the modal to automatically close
+  };
 
   return (
     <div className="container my-3">
+      {/* The Bootstrap Modal */}
+      <Modal show={modalVisible} onHide={() => setModalVisible(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>
+            Product added to cart! view cart <Link to="/cart">here</Link>
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setModalVisible(false)}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
       <div className="col-md-3 mb-3">
         <div className="filter">
           <div className="filter-body">
@@ -162,13 +184,21 @@ export default function ProductCard() {
                   <FontAwesomeIcon className="flagicon" icon={faTag} />
                   <span className="category-text">{item.category}</span>
                 </p>
-
-                <Link
-                  to={`/productdetail/${item.id}`}
-                  className="btn btn-primary"
-                >
-                  View
-                </Link>
+                <div className="button-cart-view">
+                  <Link
+                    to={`/productdetail/${item.id}`}
+                    className="btn btn-primary"
+                  >
+                    View
+                  </Link>
+                  {/* Add to cart button */}
+                  <button
+                    onClick={() => handleAddToCart(item)}
+                    className="btn btn-primary"
+                  >
+                    <FontAwesomeIcon icon={faPlus} /> Cart
+                  </button>
+                </div>
               </div>
             </div>
           </div>

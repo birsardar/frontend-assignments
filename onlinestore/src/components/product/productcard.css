@@ -29,6 +29,11 @@
     display: revert;
 }
 
+.button-cart-view {
+    display: flex;
+    justify-content: space-between;
+}
+
 /* productcard.css */
 .card {
     background-color: rgb(210, 190, 190);

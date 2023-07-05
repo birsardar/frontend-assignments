@@ -4,8 +4,6 @@ import { useParams, Link } from "react-router-dom";
 import { useQuery } from "react-query";
 import { fetchProductById } from "../api/Api";
 import { FaArrowLeft } from "react-icons/fa";
-import Navbar from "../Navbar";
-import Footer from "../footer/Footer";
 
 const ProductDetail = ({ onBack }) => {
   const { id } = useParams();
@@ -23,7 +21,6 @@ const ProductDetail = ({ onBack }) => {
 
   return (
     <div>
-      <Navbar />
       <div className="container my-3">
         <Link to="/" className="btn btn-primary">
           <FaArrowLeft /> Back
@@ -37,7 +34,6 @@ const ProductDetail = ({ onBack }) => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
