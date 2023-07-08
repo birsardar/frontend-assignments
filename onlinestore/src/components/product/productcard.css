@@ -36,6 +36,11 @@
     margin: 5px;
 }
 
+.view-btn:hover {
+    background: #377037;
+    color: #fff;
+}
+
 .cart-btn {
     background: #c6430b;
     font-style: normal;
@@ -47,6 +52,11 @@
     border: none;
     padding: 5px 10px;
     margin: 5px;
+}
+
+.cart-btn:hover {
+    background: #89a90c;
+    color: #fff;
 }
 
 .card-text {

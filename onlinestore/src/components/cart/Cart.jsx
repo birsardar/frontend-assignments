@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
-
+import "./cart.css";
 export default function Cart({ cartItems, removeFromCart, setCartItems }) {
   // const handleIncreaseQuantity = (item) => {
   //   const updatedCartItems = cartItems.map((cartItem) => {
@@ -61,7 +61,10 @@ export default function Cart({ cartItems, removeFromCart, setCartItems }) {
         <div className="mt-3">
           <h3>Cart Items</h3>
           {cartItems.length === 0 ? (
-            <p>No items in the cart.</p>
+            <div className="noitem">
+              <p>No items in the cart.</p>
+              <p>Please add Some Item </p>
+            </div>
           ) : (
             <div className="row">
               <table className="table table-dark">
