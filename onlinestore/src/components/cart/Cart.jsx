@@ -51,6 +51,7 @@ export default function Cart({ cartItems, removeFromCart, setCartItems }) {
     const itemTotalPrice = cartItem.price * count;
     return total + itemTotalPrice;
   }, 0);
+  const roundedPrice = Math.ceil(totalPrice);
 
   return (
     <div>
@@ -81,7 +82,11 @@ export default function Cart({ cartItems, removeFromCart, setCartItems }) {
                     const item = cartItems.find((item) => item.id === itemId);
                     return (
                       <tr key={`${itemId}`}>
-                        <td>{item.title}</td>
+                        <td>
+                          {item.title.length > 50
+                            ? item.title.slice(0, 50)
+                            : item.title}
+                        </td>
                         <td>
                           {/* <button
                             className="btn btn-primary btn-sm"
@@ -111,7 +116,7 @@ export default function Cart({ cartItems, removeFromCart, setCartItems }) {
                   })}
                   <tr>
                     <td colSpan="2">Total Price:</td>
-                    <td>${totalPrice}</td>
+                    <td>${roundedPrice}</td>
                     <td>
                       <button className="btn btn-success">Pay</button>
                     </td>
