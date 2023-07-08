@@ -187,14 +187,14 @@ export default function ProductCard({ cartItems, setCartItems }) {
                 <div className="button-cart-view">
                   <Link
                     to={`/productdetail/${item.id}`}
-                    className="btn btn-primary"
+                    className="btn view-btn"
                   >
                     View
                   </Link>
                   {/* Add to cart button */}
                   <button
                     onClick={() => handleAddToCart(item)}
-                    className="btn btn-primary"
+                    className="btn cart-btn"
                   >
                     <FontAwesomeIcon icon={faPlus} /> Cart
                   </button>

@@ -11,6 +11,12 @@ import Footer from "./components/footer/Footer";
 
 const App = () => {
   const [cartItems, setCartItems] = useState([]);
+  const removeFromCart = (item) => {
+    const updatedCartItems = cartItems.filter(
+      (cartItem) => cartItem.id !== item.id
+    );
+    setCartItems(updatedCartItems);
+  };
   return (
     <>
       <Router>
@@ -29,7 +35,16 @@ const App = () => {
             />
             <Route path="/productcard" />
             <Route path="/productdetail/:id" element={<ProductDetail />} />
-            <Route path="/cart" element={<Cart cartItems={cartItems} />} />
+            <Route
+              path="/cart"
+              element={
+                <Cart
+                  cartItems={cartItems}
+                  removeFromCart={removeFromCart}
+                  setCartItems={setCartItems}
+                />
+              }
+            />
           </Routes>
         </div>
         <Footer />
