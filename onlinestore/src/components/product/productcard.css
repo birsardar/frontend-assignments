@@ -2,6 +2,7 @@
     height: 100px;
     width: 100px;
     margin-top: 16px;
+    background: transparent;
 }
 
 .btn {
@@ -65,7 +66,14 @@
 }
 
 .card-title {
+
+    height: 4.6vh;
     display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 10px;
+    overflow: hidden;
 }
 
 .category-text {
@@ -196,6 +204,33 @@
         font-size: 11px;
         width: 50%;
         border-style: double;
+    }
+
+    .card-title {
+        height: auto;
+        /* Remove the fixed height */
+
+    }
+
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .button-cart-view {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        /* Add this line to allow button wrapping */
+    }
+
+    /* Add some margin between the buttons */
+    .button-cart-view .view-btn,
+    .button-cart-view .cart-btn {
+        margin: 5px;
     }
 
 }
